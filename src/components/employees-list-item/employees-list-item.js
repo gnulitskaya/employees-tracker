@@ -26,7 +26,7 @@ class EmployeesListItem extends Component {
         const {employeName, employeSalary, onDelete} = this.props;
         const {increaseSalary, star} = this.state;
 
-        let className = "list-group-item d-flex justify-content-between";
+        let className = "list-group-item";
         if(increaseSalary) {
             className += ' increase';
         }
@@ -39,7 +39,7 @@ class EmployeesListItem extends Component {
             <li className={className}>
                 <span onClick={this.addStar} className="list-group-item-label">{employeName}</span>
                 <input type="text" className="list-group-item-input" defaultValue={employeSalary + '$'}/>
-                <div className='d-flex justify-content-center align-items-center'>
+                <div className='list-group-item__btn'>
                     <button onClick={this.onIncrease} type="button"
                         className="btn-cookie btn-sm ">
                         <i className="fas fa-cookie"></i>

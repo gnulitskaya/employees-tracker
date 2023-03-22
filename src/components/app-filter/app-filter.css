@@ -1,3 +1,12 @@
 .btn-group {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto;
     margin-top: 20px;
+}
+
+@media (max-width: 756px) {
+    .btn-group {
+        grid-template-columns: auto;
+    }
 }

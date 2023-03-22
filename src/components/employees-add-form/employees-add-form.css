@@ -1,17 +1,31 @@
 .app-add-form {
     margin-top: 30px;
     padding: 25px;
-    background-color: #3d5a80;
-    border-radius: 4px;
+    background-color: #2d325a;
+    border-radius: 14px;
     box-shadow: 15px 15px 30px rgba(0,0,0, .15);
     color: #fff;
 }
 
 .add-form {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 10px;
     margin-top: 20px;
 }
 
+@media (max-width: 756px) {
+    .add-form {
+        grid-template-columns: 1fr;
+    }
+}
+
 .add-form input {
-    width: 350px;
-    margin-right: 20px;
+    /* width: 350px;
+    margin-right: 20px; */
+}
+
+.btn-gradient {
+    border: none;
+    background: linear-gradient(90deg, rgba(74,130,255,1) 0%, rgba(60,151,255,1) 35%, rgba(44,177,255,1) 100%);
 }

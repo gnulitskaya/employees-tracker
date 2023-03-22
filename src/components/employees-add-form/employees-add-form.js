@@ -21,7 +21,7 @@ class EmployeesAddForm extends Component {
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
                 <form
-                    className="add-form d-flex">
+                    className="add-form">
                     <input onChange={this.onValueChange} type="text"
                         className="form-control new-post-label"
                         name="employeName"
@@ -34,7 +34,7 @@ class EmployeesAddForm extends Component {
                         placeholder="З/П в $?" />
     
                     <button type="submit"
-                            className="btn btn-outline-light">Добавить</button>
+                            className="btn btn-gradient btn-outline-light">Добавить</button>
                 </form>
             </div>
         )
