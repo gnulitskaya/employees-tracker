@@ -1,7 +1,7 @@
 .app-info {
     padding: 25px;
-    background-color: #334155;
-    border-radius: 20px;
-    box-shadow: 0 0.1rem 0.2rem rgb(0 0 0 / 20%), 0 0.1rem 0.5rem rgb(0 0 0 / 30%), 0 0.2rem 1.5rem rgb(0 0 0 / 40%);
+    background-color: #3d5a80;
+    border-radius: 4px;
+    box-shadow: 15px 15px 30px rgba(0,0,0, .15);
     color: #fff;
 }
