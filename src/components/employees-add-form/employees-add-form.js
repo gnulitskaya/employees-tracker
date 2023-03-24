@@ -9,9 +9,20 @@ class EmployeesAddForm extends Component {
             employeSalary: ''
         }
     }
+
     onValueChange = (e) => {
         this.setState({
             [e.target.name] : e.target.value
+        })
+    }
+
+    formSubmit = (e) => {
+        e.preventDefault();
+        this.props.onAdd(this.state.employeName, this.state.employeSalary);
+        // для очистки состояния
+        this.setState({
+            employeName : '',
+            employeSalary : ''
         })
     }
 
@@ -20,7 +31,7 @@ class EmployeesAddForm extends Component {
         return (
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
-                <form
+                <form onSubmit={this.formSubmit}
                     className="add-form">
                     <input onChange={this.onValueChange} type="text"
                         className="form-control new-post-label"
