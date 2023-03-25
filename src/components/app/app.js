@@ -7,7 +7,6 @@ import EmployeesList from '../employees-list/employees-list';
 import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
 import './app.css';
-import { render } from '@testing-library/react';
 
 class App extends Component {
   
@@ -15,10 +14,10 @@ class App extends Component {
     super(props);
     this.state = {
       data: [
-        {id: 1, employeName: 'Valera', employeSalary: 800, increaseSalary: false},
-        {id: 2, employeName: 'Ivan', employeSalary: 700, increaseSalary: true},
-        {id: 3, employeName: 'Bob', employeSalary: 300, increaseSalary: false},
-        {id: 4, employeName: 'Kiril', employeSalary: 900, increaseSalary: false},
+        {id: 1, employeName: 'Valera', employeSalary: 800, increaseSalary: false, rise: true},
+        {id: 2, employeName: 'Ivan', employeSalary: 700, increaseSalary: true, rise: false},
+        {id: 3, employeName: 'Bob', employeSalary: 300, increaseSalary: false, rise: false},
+        {id: 4, employeName: 'Kiril', employeSalary: 900, increaseSalary: false, rise: false},
       ]
     }
     this.maxId = 4;
@@ -32,12 +31,35 @@ class App extends Component {
     })
   }
 
+  onToggleIncrease = (id) => {
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return {...item, increaseSalary: !item.increaseSalary}
+        }
+        return item;
+      })
+    }))
+  }
+
+  onToggleRise = (id) => {
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return {...item, rise: !item.rise}
+        }
+        return item;
+      })
+    }))
+  }
+
   addItem = (employeName, employeSalary) => {
     console.log(employeName);
     const newItem = {
       id: this.maxId + 1,
       employeName,
       employeSalary,
+      rise: false,
       increaseSalary: false
     }
     this.setState(({data}) => {
@@ -59,6 +81,8 @@ class App extends Component {
           </div>
           
           <EmployeesList 
+          onToggleIncrease={this.onToggleIncrease}
+          onToggleRise={this.onToggleRise}
           onDelete={this.deleteItem} 
           data={this.state.data}/>
 
