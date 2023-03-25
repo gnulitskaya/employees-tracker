@@ -3,7 +3,7 @@ import './employees-list-item.css';
 
 const EmployeesListItem = (props) => {
 
-    const {employeName, employeSalary, onDelete, onToggleIncrease, onToggleRise, increaseSalary, rise} = props;
+    const {employeName, employeSalary, onDelete, onToggleProp, increaseSalary, rise} = props;
 
     let className = "list-group-item";
     if(increaseSalary) {
@@ -16,10 +16,10 @@ const EmployeesListItem = (props) => {
     
     return (
         <li className={className}>
-            <span onClick={onToggleRise} className="list-group-item-label">{employeName}</span>
+            <span onClick={onToggleProp} data-toggle="rise" className="list-group-item-label">{employeName}</span>
             <input type="text" className="list-group-item-input" defaultValue={employeSalary + '$'}/>
             <div className='list-group-item__btn'>
-                <button onClick={onToggleIncrease} type="button"
+                <button data-toggle="increaseSalary" onClick={onToggleProp} type="button"
                     className="btn-cookie btn-sm ">
                     <i className="fas fa-cookie"></i>
                 </button>

@@ -31,22 +31,11 @@ class App extends Component {
     })
   }
 
-  onToggleIncrease = (id) => {
+  onToggleProp = (id, prop) => {
     this.setState(({data}) => ({
       data: data.map(item => {
         if (item.id === id) {
-          return {...item, increaseSalary: !item.increaseSalary}
-        }
-        return item;
-      })
-    }))
-  }
-
-  onToggleRise = (id) => {
-    this.setState(({data}) => ({
-      data: data.map(item => {
-        if (item.id === id) {
-          return {...item, rise: !item.rise}
+          return {...item, [prop]: !item[prop]}
         }
         return item;
       })
@@ -71,9 +60,12 @@ class App extends Component {
   }
   
   render() {
+    const employees = this.state.data.length;
+    const employeesAward = this.state.data.filter(item => item.increaseSalary).length;
     return (
       <div className="app">
-          <AppInfo />
+          <AppInfo employeesAward={employeesAward}
+          employees={employees} />
   
           <div className="search-panel">
               <SearchPanel/>
@@ -81,8 +73,7 @@ class App extends Component {
           </div>
           
           <EmployeesList 
-          onToggleIncrease={this.onToggleIncrease}
-          onToggleRise={this.onToggleRise}
+          onToggleProp={this.onToggleProp}
           onDelete={this.deleteItem} 
           data={this.state.data}/>
 
